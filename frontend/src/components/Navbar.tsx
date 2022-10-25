@@ -6,7 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = () => {
+interface NavbarProps {
+  fromLogin: boolean;
+}
+
+const Navbar = (props: NavbarProps) => {
   const navigate = useNavigate();
 
   const [showMenu, setShowMenu] = useState(false);
@@ -22,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="navbar is-light"
+      className={props.fromLogin ? "navbar" : "navbar is-light"}
       role="navigation"
       aria-label="main navigation"
     >
@@ -55,26 +59,48 @@ const Navbar = () => {
           </span>
         </div>
 
-        <div
-          id="navbarBasicExample"
-          className={showMenu ? "navbar-menu is-active" : "navbar-menu"}
-        >
-          <div className="navbar-start">
-            <a href="/" className="navbar-item">
-              Home
-            </a>
-          </div>
-
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <button onClick={Logout} className="button is-light">
-                  Log Out
-                </button>
+        {props.fromLogin ? (
+          <div
+            id="navbarBasicExample"
+            className={showMenu ? "navbar-menu is-active" : "navbar-menu"}
+          >
+            <div className="navbar-end">
+              <div className="navbar-item is-justify-content-center">
+                <span
+                  style={{
+                    width: "35px",
+                    height: "35px",
+                    backgroundColor: "gray",
+                    borderRadius: "20px",
+                  }}
+                ></span>
+                <div className="navbar-item">マイページ</div>
+                <div className="navbar-item">設定</div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div
+            id="navbarBasicExample"
+            className={showMenu ? "navbar-menu is-active" : "navbar-menu"}
+          >
+            <div className="navbar-start">
+              <a href="/" className="navbar-item">
+                Home
+              </a>
+            </div>
+
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="buttons">
+                  <button onClick={Logout} className="button is-light">
+                    Log Out
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

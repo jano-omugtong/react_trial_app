@@ -77,7 +77,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar fromLogin={false} />
       <div className="container mt-5">
         <h1>Welcome Back: {name}</h1>
         <table className="table is-striped is-fullwidth">

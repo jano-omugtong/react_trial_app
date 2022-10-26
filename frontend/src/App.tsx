@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AgentLogin from "./components/AgentLogin";
 import Dashboard from "./components/Dashboard";
+import LandingPage from "./components/LandingPage";
 import Login from "./components/Login";
-// import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/agentLogin" element={<AgentLogin />} />
+        <Route path="/landing" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
   );

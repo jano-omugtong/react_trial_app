@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { AppLogo } from "./AppLogo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { ConciergeBlock } from "./ConciergeBlock";
 
 interface NavbarProps {
   fromLogin: boolean;
@@ -32,14 +31,7 @@ const Navbar = (props: NavbarProps) => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <FontAwesomeIcon
-            icon={faHouse as IconProp}
-            width="112"
-            className="icon is-large has-text-success"
-          />
-          <span className="has-text-weight-bold">
-            StayHome<sup className="has-text-weight-normal">©</sup>
-          </span>
+          {props.fromLogin ? <AppLogo /> : null}
 
           <span
             role="button"
@@ -84,17 +76,71 @@ const Navbar = (props: NavbarProps) => {
             id="navbarBasicExample"
             className={showMenu ? "navbar-menu is-active" : "navbar-menu"}
           >
-            <div className="navbar-start">
-              <a href="/" className="navbar-item">
-                Home
-              </a>
-            </div>
-
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  <button onClick={Logout} className="button is-light">
-                    Log Out
+                  <button
+                    className="button is-white mx-1"
+                    // onClick={Logout}
+                  >
+                    <span title="Badge top right" className="badge is-success">
+                      8
+                    </span>
+                    <FontAwesomeIcon
+                      icon={["fas", "inbox"]}
+                      className="fa-xl"
+                    />
+                  </button>
+                  <button
+                    className="button is-white mx-1"
+                    // onClick={Logout}
+                  >
+                    <span title="Badge top right" className="badge is-danger">
+                      8
+                    </span>
+                    <FontAwesomeIcon icon={["fas", "bell"]} className="fa-xl" />
+                  </button>
+                </div>
+              </div>
+              <div className="navbar-item">
+                <ConciergeBlock />
+              </div>
+              <div className="navbar-item">
+                <div className="buttons">
+                  <button
+                    className="button is-white has-tooltip-bottom fa-layers"
+                    data-tooltip="Help"
+                    // onClick={Logout}
+                  >
+                    <FontAwesomeIcon
+                      icon={["fas", "circle"]}
+                      className="fa-xl"
+                    />
+                    <FontAwesomeIcon
+                      icon={["fas", "question-circle"]}
+                      inverse
+                      className="fa-xl"
+                    />
+                  </button>
+                  <button
+                    className="button is-white has-tooltip-bottom mr-0 px-0"
+                    data-tooltip="Languages"
+                  >
+                    <span
+                      className="fa-layers mr-1"
+                      // onClick={Logout}
+                    >
+                      <FontAwesomeIcon icon={["fas", "circle"]} />
+                      <FontAwesomeIcon icon={["fas", "globe"]} inverse />
+                    </span>
+                    <p>EN</p>
+                  </button>
+                  <button
+                    className="button is-white has-tooltip-bottom"
+                    data-tooltip="Logout"
+                    onClick={Logout}
+                  >
+                    <FontAwesomeIcon icon={["fas", "right-from-bracket"]} />
                   </button>
                 </div>
               </div>

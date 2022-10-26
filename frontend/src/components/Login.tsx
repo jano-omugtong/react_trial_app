@@ -4,8 +4,10 @@ import { useNavigate, Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add(fas);
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -159,12 +161,13 @@ const Login = () => {
                       <span
                         style={{
                           verticalAlign: "middle",
+                          width: "25px",
                         }}
+                        className="tag is-warning is-rounded mx-2"
                       >
                         <FontAwesomeIcon
-                          icon={faBriefcase as IconProp}
-                          width="60"
-                          className="icon is-small has-text-warning mx-2"
+                          icon={["fas", "briefcase"]}
+                          className="icon has-text-white is-small"
                         />
                       </span>
                       <span>

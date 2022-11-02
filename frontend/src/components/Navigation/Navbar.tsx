@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
-import { AppLogo } from "./AppLogo";
+import { ReactSession } from "react-client-session";
+
+import apiAxios from "../../services/api";
+import { ConciergeBlock } from "../Common/ConciergeBlock";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ConciergeBlock } from "./ConciergeBlock";
+
+import { AppLogo } from "../Common/AppLogo";
 
 interface NavbarProps {
   fromLogin: boolean;
@@ -14,18 +19,36 @@ const Navbar = (props: NavbarProps) => {
 
   const [showMenu, setShowMenu] = useState(false);
 
+  const getUsers = async () => {
+    try {
+      const response = await apiAxios.get("http://localhost:5000/usersa", {});
+      console.log(response.data);
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        const { response } = error;
+        let message =
+          response && response.data.msg ? response.data.msg : error.message;
+        console.log(message);
+      }
+    }
+  };
+
   const Logout = async () => {
     try {
-      await axios.delete("http://localhost:5000/logout");
+      await apiAxios.delete("http://localhost:5000/logout");
       navigate("/");
     } catch (error) {
-      console.log(error);
+      if (error instanceof AxiosError) {
+        const { response } = error;
+        let message = response ? response.data.msg : error.message;
+        console.log(message);
+      }
     }
   };
 
   return (
     <nav
-      className={props.fromLogin ? "navbar" : "navbar is-light"}
+      className={props.fromLogin ? "navbar is-white" : "navbar is-light"}
       role="navigation"
       aria-label="main navigation"
     >
@@ -78,11 +101,8 @@ const Navbar = (props: NavbarProps) => {
           >
             <div className="navbar-end">
               <div className="navbar-item">
-                <div className="buttons">
-                  <button
-                    className="button is-white mx-1"
-                    // onClick={Logout}
-                  >
+                <div className="buttons mt-1">
+                  <button className="button is-white mx-1" onClick={getUsers}>
                     <span title="Badge top right" className="badge is-success">
                       8
                     </span>
@@ -103,7 +123,12 @@ const Navbar = (props: NavbarProps) => {
                 </div>
               </div>
               <div className="navbar-item">
-                <ConciergeBlock />
+                <ConciergeBlock
+                  userName={ReactSession.get("user_name")}
+                  companyName="AWS"
+                  imgSrc="favicon.ico"
+                  isOnline={true}
+                />
               </div>
               <div className="navbar-item">
                 <div className="buttons">

@@ -1,20 +1,21 @@
 import React, { Component } from "react";
-import { Footer } from "./Footer";
-import MainBody from "./MainBody";
-import Navbar from "./Navbar";
-import { Sidebar } from "./Sidebar";
-
+import { Footer } from "./Common/Footer";
+import { MainBody } from "./MainBody/MainBody";
+import Navbar from "./Navigation/Navbar";
+import { Sidebar } from "./Navigation/Sidebar";
 export class LandingPage extends Component {
   render() {
     return (
       <div
         className="hero columns is-fullheight is-fullwidth desktop"
-        style={{ flexDirection: "initial" }}
+        style={{ flexDirection: "initial", margin: "0px" }}
       >
         <div
           className="column is-fullheight is-fullwidth is-2"
           style={{
-            boxShadow: "-3px -15px 15px 0 #555",
+            boxShadow: "-3px 0px 15px 0 #555",
+            padding: "0px",
+            position: "relative",
           }}
         >
           <Sidebar />
@@ -23,6 +24,7 @@ export class LandingPage extends Component {
           className="column hero is-fullheight is-fullwidth is-10"
           style={{
             flexDirection: "column",
+            padding: "0px",
           }}
         >
           <Navbar fromLogin={false} />

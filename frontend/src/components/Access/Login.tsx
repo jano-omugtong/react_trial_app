@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import { ReactSession } from "react-client-session";
+import jwt_decode from "jwt-decode";
+
+import Navbar from "../Navigation/Navbar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
 library.add(fas);
+
+interface IDecode {
+  name: string;
+  exp: string;
+}
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -23,18 +31,25 @@ const Login = () => {
     e.preventDefault();
     if (email && password) {
       try {
-        await axios.post("http://localhost:5000/login", {
+        const response = await axios.post("http://localhost:5000/login", {
           email: email,
           password: password,
         });
-        navigate("/dashboard");
+        const accessToken = response.data.accessToken;
+        const decoded: IDecode = jwt_decode(accessToken);
+
+        ReactSession.set("user_name", decoded.name);
+        ReactSession.set("session_exp", decoded.exp);
+
+        navigate("/landing");
       } catch (error) {
         let message;
         if (error instanceof AxiosError) {
           const { response } = error;
-          message = response ? response.data.msg : error.message;
+          message =
+            response && response.data.msg ? response.data.msg : error.message;
         } else {
-          message = String(error);
+          message = "Something went wrong";
         }
         setMsg(message);
       }

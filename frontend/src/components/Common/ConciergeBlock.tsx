@@ -1,6 +1,13 @@
 import React from "react";
 
-export const ConciergeBlock = () => {
+interface IConciergeBlock {
+  userName: string;
+  companyName: string;
+  imgSrc: string;
+  isOnline: boolean;
+}
+
+export const ConciergeBlock: React.FC<IConciergeBlock> = (props) => {
   return (
     <div>
       <table>
@@ -11,12 +18,12 @@ export const ConciergeBlock = () => {
                 <tbody>
                   <tr>
                     <td>
-                      <p>Jano Omugtong</p>
+                      <p>{props.userName}</p>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <p>Advanced World Solutions</p>
+                      <p>{props.companyName}</p>
                     </td>
                   </tr>
                 </tbody>
@@ -38,21 +45,23 @@ export const ConciergeBlock = () => {
                   borderRadius: "50%",
                   objectFit: "cover",
                 }}
-                src="favicon.ico"
+                src={props.imgSrc}
                 alt="Profile Pic"
               />
-              <span
-                style={{
-                  width: "1rem",
-                  height: "1rem",
-                  background: "#99CC00",
-                  border: "2px solid white",
-                  position: "absolute",
-                  bottom: "7%",
-                  right: "7%",
-                  borderRadius: "100%",
-                }}
-              ></span>
+              {props.isOnline ? (
+                <span
+                  style={{
+                    width: "1rem",
+                    height: "1rem",
+                    background: "#99CC00",
+                    border: "2px solid white",
+                    position: "absolute",
+                    bottom: "7%",
+                    right: "7%",
+                    borderRadius: "100%",
+                  }}
+                ></span>
+              ) : null}
             </td>
           </tr>
         </tbody>

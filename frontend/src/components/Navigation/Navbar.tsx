@@ -36,6 +36,11 @@ const Navbar = (props: NavbarProps) => {
   const Logout = async () => {
     try {
       await apiAxios.delete("http://localhost:5000/logout");
+
+      ReactSession.remove("user_name");
+      ReactSession.remove("session_exp");
+      ReactSession.remove("user_img_src");
+
       navigate("/");
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -48,7 +53,7 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <nav
-      className={props.fromLogin ? "navbar is-white" : "navbar is-light"}
+      className="navbar sticky"
       role="navigation"
       aria-label="main navigation"
     >
@@ -77,7 +82,11 @@ const Navbar = (props: NavbarProps) => {
         {props.fromLogin ? (
           <div
             id="navbarBasicExample"
-            className={showMenu ? "navbar-menu is-active" : "navbar-menu"}
+            className={
+              showMenu
+                ? "navbar-menu is-white is-active"
+                : "navbar-menu is-white"
+            }
           >
             <div className="navbar-end">
               <div className="navbar-item is-justify-content-center">
@@ -97,7 +106,14 @@ const Navbar = (props: NavbarProps) => {
         ) : (
           <div
             id="navbarBasicExample"
-            className={showMenu ? "navbar-menu is-active" : "navbar-menu"}
+            className={
+              showMenu
+                ? "navbar-menu bg-white is-active"
+                : "navbar-menu bg-white"
+            }
+            style={{
+              boxShadow: "15px 0px 15px 0px #555",
+            }}
           >
             <div className="navbar-end">
               <div className="navbar-item">
@@ -126,7 +142,10 @@ const Navbar = (props: NavbarProps) => {
                 <ConciergeBlock
                   userName={ReactSession.get("user_name")}
                   companyName="AWS"
-                  imgSrc="favicon.ico"
+                  imgSrc={
+                    process.env.PUBLIC_URL +
+                    `/${ReactSession.get("user_img_src")}`
+                  }
                   isOnline={true}
                 />
               </div>

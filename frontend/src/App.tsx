@@ -9,7 +9,6 @@ import Register from "./components/Access/Register";
 import "./App.css";
 import { LandingPage } from "./components/LandingPage";
 import { TBLanding } from "./components/MainBody/TradeBusiness/TBLanding";
-import { TDLanding } from "./components/MainBody/TradeDevelopment/TDLanding";
 import { TDBuyerMain } from "./components/MainBody/TradeDevelopment/TDBuyerMain";
 import { TDSellerMain } from "./components/MainBody/TradeDevelopment/TDSellerMain";
 import { SubSelection } from "./components/MainBody/Selection/SubSelection";

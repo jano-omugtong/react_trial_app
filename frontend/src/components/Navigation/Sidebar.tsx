@@ -8,7 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Sidebar = () => {
   const location = useLocation();
   const landing_page = "/landing";
-  const td_page = "/trade_development";
+  const td_buyer_page = "/trade_development/buyer";
+  const td_seller_page = "/trade_development/seller";
+
   return (
     <aside className="menu">
       <p className="menu-label">
@@ -75,13 +77,12 @@ export const Sidebar = () => {
           </a>
         </li>
       </ul>
-      {location.pathname.includes(td_page) &&
-      !location.pathname.includes(landing_page) ? (
+      {location.pathname.includes(td_buyer_page) ? (
         <>
           <span className="menu-label">
             <hr />
           </span>
-          <ul className="menu-list">
+          <ul className="menu-list menu-list-sub">
             <li>
               <a href="/">エントリー中の依頼一覧</a>
             </li>
@@ -98,6 +99,52 @@ export const Sidebar = () => {
                   <a>案件一覧</a>
                 </li>
               </ul>
+            </li>
+          </ul>
+        </>
+      ) : null}
+      {location.pathname.includes(td_seller_page) ? (
+        <>
+          <span className="menu-label">
+            <hr />
+          </span>
+          <ul className="menu-list menu-list-sub">
+            <li>
+              <a href="/">新規プロジェクト作成</a>
+              <ul>
+                <li>
+                  <a>会社情報登録</a>
+                </li>
+                <li>
+                  <a>商品情報登録</a>
+                </li>
+                <li>
+                  <a>案件詳細作成</a>
+                </li>
+                <li>
+                  <a>コンシェルジュ選択</a>
+                </li>
+                <li>
+                  <a>依頼</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/">コンシェルジュエントリー一覧</a>
+              <ul>
+                <li>
+                  <a>発注</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/">お気に入りのコンシェルジュ一覧</a>
+            </li>
+            <li>
+              <a href="/">案件一覧　(エントリー中、進行中)</a>
+            </li>
+            <li>
+              <a href="/">セラー探し中の案件一覧</a>
             </li>
           </ul>
         </>

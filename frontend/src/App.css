@@ -2,6 +2,33 @@
   text-align: center;
 }
 
+/* .sticky {
+  position: sticky !important;
+  top: 0;
+  width: 100%;
+}
+
+.bg-white {
+  background: #ffffff;
+} */
+
 .sitewide-bg {
   background: rgb(248, 149, 29) !important;
+}
+
+.menu-list-sub {
+  line-height: 8px !important;
+}
+
+.menu-list-sub ul {
+  font-size: small;
+  margin-top: 0 !important;
+}
+
+.menu-list-sub li {
+  font-size: 0.8rem;
+}
+
+.active-link {
+  color: rgb(248, 149, 29) !important;
 }

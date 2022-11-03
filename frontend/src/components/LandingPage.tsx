@@ -23,7 +23,7 @@ export const LandingPage = () => {
       <div
         className="column is-fullheight is-fullwidth is-2"
         style={{
-          boxShadow: "-3px 0px 15px 0 #555",
+          boxShadow: "-3px 0px 15px 0px #555",
           padding: "0px",
           position: "relative",
         }}

@@ -40,6 +40,7 @@ const Login = () => {
 
         ReactSession.set("user_name", decoded.name);
         ReactSession.set("session_exp", decoded.exp);
+        ReactSession.set("user_img_src", "favicon.ico");
 
         navigate("/landing");
       } catch (error) {

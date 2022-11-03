@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Sidebar = () => {
   const location = useLocation();
   const landing_page = "/landing";
+  const td_page = "/trade_development";
   return (
     <aside className="menu">
       <p className="menu-label">
@@ -31,7 +32,11 @@ export const Sidebar = () => {
         <hr />
       </span>
       <ul className="menu-list">
-        <li className={location.pathname === landing_page ? "sitewide-bg" : ""}>
+        <li
+          className={
+            location.pathname.includes(landing_page) ? "sitewide-bg" : ""
+          }
+        >
           <Link to="/landing">
             {" "}
             <FontAwesomeIcon
@@ -70,6 +75,33 @@ export const Sidebar = () => {
           </a>
         </li>
       </ul>
+      {location.pathname.includes(td_page) &&
+      !location.pathname.includes(landing_page) ? (
+        <>
+          <span className="menu-label">
+            <hr />
+          </span>
+          <ul className="menu-list">
+            <li>
+              <a href="/">エントリー中の依頼一覧</a>
+            </li>
+            <li>
+              <a href="/">依頼された案件一覧</a>
+            </li>
+            <li>
+              <a href="/">セラー探し中の案件</a>
+              <ul>
+                <li>
+                  <a>新規作成</a>
+                </li>
+                <li>
+                  <a>案件一覧</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </>
+      ) : null}
     </aside>
   );
 };

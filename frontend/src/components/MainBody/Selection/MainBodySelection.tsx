@@ -6,13 +6,11 @@ interface MainBodySelectionProps {
   rightIcon: string;
   rightLabel: string;
   rightDescription?: string;
-  rightLink?: string;
-  rightSelection: string;
+  rightLink: string;
   leftIcon: string;
   leftLabel: string;
   leftDescription?: string;
-  leftLink?: string;
-  leftSelection: string;
+  leftLink: string;
 }
 
 export const MainBodySelection = (props: MainBodySelectionProps) => {
@@ -33,10 +31,9 @@ export const MainBodySelection = (props: MainBodySelectionProps) => {
           }}
         >
           <MainBodyNavCard
-            icon={props.rightIcon}
-            label={props.rightLabel}
-            link={props.rightLink}
-            selection={props.rightSelection}
+            icon={props.leftIcon}
+            label={props.leftLabel}
+            link={props.leftLink}
           />
         </div>
       </div>
@@ -48,10 +45,9 @@ export const MainBodySelection = (props: MainBodySelectionProps) => {
           }}
         >
           <MainBodyNavCard
-            icon={props.leftIcon}
-            label={props.leftLabel}
-            link={props.leftLink}
-            selection={props.leftSelection}
+            icon={props.rightIcon}
+            label={props.rightLabel}
+            link={props.rightLink}
           />
         </div>
       </div>

@@ -4,12 +4,12 @@ import { MainBodySelection } from "./MainBodySelection";
 export const MainSelection = () => {
   return (
     <MainBodySelection
-      rightIcon="dolly"
-      rightLabel="貿易開拓"
-      rightSelection="/trade_development"
-      leftIcon="ship"
-      leftLabel="貿易業務"
-      leftSelection="/trade_business"
+      leftIcon="dolly"
+      leftLabel="貿易開拓"
+      leftLink="/landing/trade_development"
+      rightIcon="ship"
+      rightLabel="貿易業務"
+      rightLink="/landing/trade_business"
     />
   );
 };

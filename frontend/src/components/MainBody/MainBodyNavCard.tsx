@@ -11,12 +11,12 @@ interface MainBodyNavCardProps {
   icon: string;
   label: string;
   description?: string;
-  link?: string;
-  selection: string;
+  link: string;
+  selection?: string;
 }
 
 export const MainBodyNavCard = (props: MainBodyNavCardProps) => {
-  const destination: string = props.link ?? "/landing";
+  const selection: string = props.selection ?? "dummy";
 
   return (
     <div
@@ -59,10 +59,10 @@ export const MainBodyNavCard = (props: MainBodyNavCardProps) => {
         <p className="card-footer-item">
           <button className="button button-color">
             <Link
-              to={destination}
+              to={props.link}
               className="title is-5 button-link"
               onClick={() => {
-                store.selection_page = props.selection;
+                store.selection_page = selection;
               }}
             >
               Select

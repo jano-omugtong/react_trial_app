@@ -9,3 +9,11 @@
 .button-link {
   color: white !important;
 }
+
+.custom-media-content {
+  overflow: hidden;
+}
+
+.profile-page-table td {
+  border: none !important;
+}

@@ -17,7 +17,7 @@ export const LandingPage = () => {
 
   return (
     <div
-      className="hero columns is-fullheight is-fullwidth desktop"
+      className="hero columns is-fullheight is-fullwidth has-background-light"
       style={{ flexDirection: "initial", margin: "0px" }}
     >
       <div
@@ -40,7 +40,11 @@ export const LandingPage = () => {
         <Navbar fromLogin={false} />
 
         <div
-          className="has-background-light"
+          className={
+            !location.pathname.includes(landing_page)
+              ? "container is-desktop"
+              : ""
+          }
           style={{
             height: "100%",
           }}

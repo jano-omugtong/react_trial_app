@@ -22,7 +22,7 @@ export const MainBodyNavCard = (props: MainBodyNavCardProps) => {
     <div
       className="card"
       style={{
-        width: "50%",
+        width: "100%",
       }}
     >
       <div className="card-image">
@@ -47,7 +47,7 @@ export const MainBodyNavCard = (props: MainBodyNavCardProps) => {
       </div>
       <div className="card-content has-text-centered">
         <div className="media">
-          <div className="media-content">
+          <div className="media-content custom-media-content">
             <p className="title is-4">{props.label}</p>
             <p className="subtitle is-6">
               {props.description ?? "Details listed here"}

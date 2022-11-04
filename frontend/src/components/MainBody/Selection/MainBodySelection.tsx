@@ -27,7 +27,8 @@ export const MainBodySelection = (props: MainBodySelectionProps) => {
           className="hero"
           style={{
             height: "100%",
-            flexDirection: "row-reverse",
+            margin: "auto",
+            width: "50%",
           }}
         >
           <MainBodyNavCard
@@ -42,6 +43,8 @@ export const MainBodySelection = (props: MainBodySelectionProps) => {
           className="hero"
           style={{
             height: "100%",
+            margin: "auto",
+            width: "50%",
           }}
         >
           <MainBodyNavCard

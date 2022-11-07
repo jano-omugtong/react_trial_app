@@ -10,11 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { AppLogo } from "../Common/AppLogo";
 
-interface NavbarProps {
+interface INavbarProps {
   fromLogin: boolean;
 }
 
-const Navbar = (props: NavbarProps) => {
+export const Navbar: React.FC<INavbarProps> = (props) => {
   const navigate = useNavigate();
 
   const [showMenu, setShowMenu] = useState(false);
@@ -189,5 +189,3 @@ const Navbar = (props: NavbarProps) => {
     </nav>
   );
 };
-
-export default Navbar;

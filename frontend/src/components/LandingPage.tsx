@@ -5,11 +5,11 @@ import { Footer } from "./Common/Footer";
 import { MainSelection } from "./MainBody/Selection/MainSelection";
 import { SubSelection } from "./MainBody/Selection/SubSelection";
 import { TDLanding } from "./MainBody/TradeDevelopment/TDLanding";
-import Navbar from "./Navigation/Navbar";
+import { Navbar } from "./Navigation/Navbar";
 import { PageNotFound } from "./Navigation/PageNotFound";
 import { Sidebar } from "./Navigation/Sidebar";
 
-export const LandingPage = () => {
+export const LandingPage: React.FC = () => {
   const location = useLocation();
   const landing_page = "/landing";
   const tb_page = "/trade_business";

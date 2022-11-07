@@ -2,7 +2,7 @@ import React from "react";
 import { MainBodySelection } from "./MainBodySelection";
 import { useLocation } from "react-router-dom";
 
-export const SubSelection = () => {
+export const SubSelection: React.FC = () => {
   const location = useLocation();
   const tb_page = "/trade_business";
 

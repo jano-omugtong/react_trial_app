@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
-export const AppLogo = () => {
+export const AppLogo: React.FC = () => {
   return (
     <>
       <FontAwesomeIcon

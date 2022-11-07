@@ -5,7 +5,7 @@ import { AppLogo } from "../Common/AppLogo";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const Sidebar = () => {
+export const Sidebar: React.FC = () => {
   const location = useLocation();
   const landing_page = "/landing";
   const td_buyer_page = "/trade_development/buyer";

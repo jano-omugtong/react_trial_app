@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navigation/Navbar";
+import { Navbar } from "./Navigation/Navbar";
 
 import axiosApi from "../services/api";
 
-const Dashboard = () => {
-  interface Decode {
+const Dashboard: React.FC = () => {
+  interface IDecode {
     name: string;
     exp: string;
   }
 
-  interface User {
+  interface IUser {
     id: number;
     name: string;
     email: string;
@@ -21,7 +21,7 @@ const Dashboard = () => {
   const [name, setName] = useState("");
   const [token, setToken] = useState("");
   const [expire, setExpire] = useState("");
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const Dashboard = () => {
     try {
       const response = await axios.get("http://localhost:5000/token");
       setToken(response.data.accessToken);
-      const decoded: Decode = jwt_decode(response.data.accessToken);
+      const decoded: IDecode = jwt_decode(response.data.accessToken);
       setName(decoded.name);
       setExpire(decoded.exp);
     } catch (error) {
@@ -55,7 +55,7 @@ const Dashboard = () => {
           config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         }
         setToken(response.data.accessToken);
-        const decoded: Decode = jwt_decode(response.data.accessToken);
+        const decoded: IDecode = jwt_decode(response.data.accessToken);
         setName(decoded.name);
         setExpire(decoded.exp);
       }

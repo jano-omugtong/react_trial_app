@@ -1,11 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-interface SpanWithCheckIconProps {
+interface ISpanWithCheckIconProps {
   text: string;
 }
 
-export const SpanWithCheckIcon = (props: SpanWithCheckIconProps) => {
+export const SpanWithCheckIcon: React.FC<ISpanWithCheckIconProps> = (props) => {
   return (
     <span className="mx-2">
       <FontAwesomeIcon

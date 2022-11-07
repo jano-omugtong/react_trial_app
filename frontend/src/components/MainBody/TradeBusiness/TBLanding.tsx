@@ -1,5 +1,5 @@
 import React from "react";
 
-export const TBLanding = () => {
+export const TBLanding: React.FC = () => {
   return <div>TBLanding</div>;
 };

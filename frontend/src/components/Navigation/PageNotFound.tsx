@@ -1,6 +1,6 @@
 import React from "react";
 
-export const PageNotFound = () => {
+export const PageNotFound: React.FC = () => {
   return (
     <div className="has-text-centered">
       <p className="title is-1">PageNotFound</p>

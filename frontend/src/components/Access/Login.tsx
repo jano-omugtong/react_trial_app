@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { ReactSession } from "react-client-session";
 import jwt_decode from "jwt-decode";
 
-import Navbar from "../Navigation/Navbar";
+import { Navbar } from "../Navigation/Navbar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";

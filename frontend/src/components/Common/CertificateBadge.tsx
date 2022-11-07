@@ -1,12 +1,12 @@
 import React from "react";
 
-interface CertificateBadgeProps {
+interface ICertificateBadgeProps {
   img_src: string;
   img_alt: string;
   rectangle?: boolean;
 }
 
-export const CertificateBadge = (props: CertificateBadgeProps) => {
+export const CertificateBadge: React.FC<ICertificateBadgeProps> = (props) => {
   return (
     <div>
       <figure

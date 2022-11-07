@@ -2,7 +2,7 @@ import React from "react";
 
 import { MainBodyNavCard } from "../MainBodyNavCard";
 
-interface MainBodySelectionProps {
+interface IMainBodySelectionProps {
   rightIcon: string;
   rightLabel: string;
   rightDescription?: string;
@@ -13,7 +13,7 @@ interface MainBodySelectionProps {
   leftLink: string;
 }
 
-export const MainBodySelection = (props: MainBodySelectionProps) => {
+export const MainBodySelection: React.FC<IMainBodySelectionProps> = (props) => {
   return (
     <div
       className="columns desktop"

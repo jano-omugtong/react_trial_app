@@ -1,7 +1,7 @@
 import React from "react";
 import { MainBodySelection } from "./MainBodySelection";
 
-export const MainSelection = () => {
+export const MainSelection: React.FC = () => {
   return (
     <MainBodySelection
       leftIcon="dolly"

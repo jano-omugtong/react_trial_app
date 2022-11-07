@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./MainBody.css";
 
-interface MainBodyNavCardProps {
+interface IMainBodyNavCardProps {
   icon: string;
   label: string;
   description?: string;
@@ -15,7 +15,7 @@ interface MainBodyNavCardProps {
   selection?: string;
 }
 
-export const MainBodyNavCard = (props: MainBodyNavCardProps) => {
+export const MainBodyNavCard: React.FC<IMainBodyNavCardProps> = (props) => {
   const selection: string = props.selection ?? "dummy";
 
   return (

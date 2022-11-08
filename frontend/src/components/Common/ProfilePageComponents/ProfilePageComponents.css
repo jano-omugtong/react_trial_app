@@ -1,0 +1,26 @@
+.profile-page-table td {
+  border-bottom: none !important;
+}
+
+.text-dont-break {
+  white-space: pre;
+}
+
+#concierge-stats-evaluation {
+  border-left: solid 5px grey;
+  border-right: solid 5px grey;
+}
+
+@media screen and (max-width: 768px) {
+  #concierge-stats-evaluation {
+    border-left: none;
+    border-right: none;
+    border-top: solid 5px grey;
+    border-bottom: solid 5px grey;
+  }
+}
+
+.profile-page-margin-x {
+  margin-left: 5rem !important;
+  margin-right: 5rem !important;
+}

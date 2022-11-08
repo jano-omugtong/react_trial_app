@@ -1,8 +1,8 @@
 import React from "react";
 
-interface ICertificateBadgeProps {
-  img_src: string;
-  img_alt: string;
+export interface ICertificateBadgeProps {
+  imgSrc: string;
+  imgAlt: string;
   rectangle?: boolean;
 }
 
@@ -18,8 +18,8 @@ export const CertificateBadge: React.FC<ICertificateBadgeProps> = (props) => {
       >
         <img
           className={`image ${props.rectangle ? "is-64x128" : "is-64x64"}`}
-          src={props.img_src}
-          alt={props.img_alt}
+          src={process.env.PUBLIC_URL + `/images/${props.imgSrc}`}
+          alt={process.env.PUBLIC_URL + `/images/${props.imgAlt}`}
           style={{
             objectFit: "cover",
             verticalAlign: "middle",

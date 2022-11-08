@@ -1,11 +1,11 @@
 import React from "react";
 
-interface IPricelistCardProps {
+export interface IPriceListCardProps {
   imgSrc: string;
   imgAlt: string;
 }
 
-export const PricelistCard: React.FC<IPricelistCardProps> = (props) => {
+export const PriceListCard: React.FC<IPriceListCardProps> = (props) => {
   return (
     <div>
       <img
@@ -15,7 +15,7 @@ export const PricelistCard: React.FC<IPricelistCardProps> = (props) => {
           height: "13rem",
           margin: "10px",
         }}
-        src={process.env.PUBLIC_URL + props.imgSrc}
+        src={process.env.PUBLIC_URL + `/images/${props.imgSrc}`}
         alt={props.imgAlt}
       />
     </div>

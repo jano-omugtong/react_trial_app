@@ -1,0 +1,17 @@
+.proj-details {
+  border-left: 1px dotted black;
+  display: grid;
+  align-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .proj-details {
+    border-left: none;
+    border-top: 1px dotted black;
+  }
+}
+
+.certified-client {
+  border-top-left-radius: 0px !important;
+  border-top: 5px solid #3e8ed0;
+}

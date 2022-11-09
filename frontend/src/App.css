@@ -13,7 +13,7 @@
 }
 
 .sitewide-bg {
-  background: rgb(248, 149, 29) !important;
+  background: rgb(248, 149, 29);
 }
 
 .menu-list-sub {
@@ -35,4 +35,9 @@
 
 .smirk-smiley-color {
   color: #ef9639;
+}
+
+.sidebar-hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
 }

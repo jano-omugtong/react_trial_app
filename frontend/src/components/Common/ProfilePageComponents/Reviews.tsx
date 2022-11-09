@@ -32,12 +32,7 @@ export const Reviews: React.FC<IReviewsProps> = (props) => {
           acquisitionRewardEnd={acquisitionRewardEnd}
         />
         <div>
-          <p
-            style={{
-              cursor: "pointer",
-            }}
-            className="subtittle has-text-info has-text-centered"
-          >
+          <p className="subtittle has-text-info has-text-centered is-clickable">
             もっと見る{" "}
             <FontAwesomeIcon
               icon={["fas", "caret-down"]}

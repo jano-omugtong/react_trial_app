@@ -13,6 +13,7 @@ import { TDBuyerMain } from "./components/MainBody/TradeDevelopment/TDBuyerMain"
 import { TDSellerMain } from "./components/MainBody/TradeDevelopment/TDSellerMain";
 import { SubSelection } from "./components/MainBody/Selection/SubSelection";
 import { PageNotFound } from "./components/Navigation/PageNotFound";
+import { RequestedProjList } from "./components/MainBody/TradeDevelopment/Buyer/ListOfRequestedProj/RequestedProjList";
 
 function App() {
   ReactSession.setStoreType("localStorage");
@@ -30,7 +31,12 @@ function App() {
         </Route>
         <Route path="/trade_business" element={<TBLanding />} />
         <Route path="/trade_development" element={<LandingPage />}>
-          <Route path="/trade_development/buyer" element={<TDBuyerMain />} />
+          <Route path="/trade_development/buyer" element={<TDBuyerMain />}>
+            <Route
+              path="/trade_development/buyer/requested_project_list"
+              element={<RequestedProjList />}
+            />
+          </Route>
           <Route path="/trade_development/seller" element={<TDSellerMain />} />
         </Route>
         <Route path="/404" element={<PageNotFound />} />

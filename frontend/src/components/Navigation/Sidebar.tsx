@@ -10,6 +10,8 @@ export const Sidebar: React.FC = () => {
   const landing_page = "/landing";
   const td_buyer_page = "/trade_development/buyer";
   const td_seller_page = "/trade_development/seller";
+  const td_b_RequestedProjList_page =
+    "/trade_development/buyer/requested_project_list";
 
   return (
     <aside className="menu">
@@ -31,7 +33,7 @@ export const Sidebar: React.FC = () => {
         </li>
       </ul>
       <span className="menu-label">
-        <hr />
+        <hr className="sidebar-hr" />
       </span>
       <ul className="menu-list">
         <li
@@ -56,7 +58,7 @@ export const Sidebar: React.FC = () => {
         </li>
       </ul>
       <span className="menu-label">
-        <hr />
+        <hr className="sidebar-hr" />
       </span>
       <ul className="menu-list">
         <li>
@@ -80,14 +82,23 @@ export const Sidebar: React.FC = () => {
       {location.pathname.includes(td_buyer_page) ? (
         <>
           <span className="menu-label">
-            <hr />
+            <hr className="sidebar-hr" />
           </span>
           <ul className="menu-list menu-list-sub">
             <li>
               <a href="/">エントリー中の依頼一覧</a>
             </li>
             <li>
-              <a href="/">依頼された案件一覧</a>
+              <Link
+                to="/trade_development/buyer/requested_project_list"
+                className={
+                  location.pathname.includes(td_b_RequestedProjList_page)
+                    ? "active-link"
+                    : ""
+                }
+              >
+                依頼された案件一覧
+              </Link>
             </li>
             <li>
               <a href="/">セラー探し中の案件</a>
@@ -106,7 +117,7 @@ export const Sidebar: React.FC = () => {
       {location.pathname.includes(td_seller_page) ? (
         <>
           <span className="menu-label">
-            <hr />
+            <hr className="sidebar-hr" />
           </span>
           <ul className="menu-list menu-list-sub">
             <li>

@@ -95,7 +95,6 @@ export const Details: React.FC<IDetailsProps> = (props) => {
                     <p
                       className="title is-3"
                       style={{
-                        marginTop: "5px",
                         marginBottom: "18px",
                       }}
                     >

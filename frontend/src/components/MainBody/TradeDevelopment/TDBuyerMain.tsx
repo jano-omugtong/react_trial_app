@@ -5,8 +5,13 @@ import { ProfilePage } from "../../Common/ProfilePage";
 import { IDetailsProps } from "../../Common/ProfilePageComponents/Details";
 import { ISingleReviewProps } from "../../Common/SingleReview";
 import { IProfileStatsProps } from "../../Common/ProfilePageComponents/ProfileStats";
+import { Outlet, useLocation } from "react-router-dom";
+import { RequestedProjList } from "./Buyer/ListOfRequestedProj/RequestedProjList";
 
 export const TDBuyerMain: React.FC = () => {
+  const location = useLocation();
+  const td_buyer_page = "/trade_development/buyer";
+
   const profile_details: IDetailsProps = {
     name: "Dummy Sample",
     position: "Webマーケティングで売上・利益最大化をサポート",
@@ -61,17 +66,25 @@ export const TDBuyerMain: React.FC = () => {
   };
 
   return (
-    <ProfilePage
-      dpImgSrc="Pokemon-Camp.png"
-      details={profile_details}
-      profileStats={profile_stats}
-      promotedReview={profile_promoted_review}
-      arrPriceListCard={[
-        { imgSrc: "p1.png", imgAlt: "P1" },
-        { imgSrc: "p2.png", imgAlt: "P2" },
-        { imgSrc: "p3.png", imgAlt: "P3" },
-        { imgSrc: "p4.png", imgAlt: "P4" },
-      ]}
-    />
+    <>
+      {location.pathname !== td_buyer_page ? (
+        <>
+          <Outlet />
+        </>
+      ) : (
+        <ProfilePage
+          dpImgSrc="Pokemon-Camp.png"
+          details={profile_details}
+          profileStats={profile_stats}
+          promotedReview={profile_promoted_review}
+          arrPriceListCard={[
+            { imgSrc: "p1.png", imgAlt: "P1" },
+            { imgSrc: "p2.png", imgAlt: "P2" },
+            { imgSrc: "p3.png", imgAlt: "P3" },
+            { imgSrc: "p4.png", imgAlt: "P4" },
+          ]}
+        />
+      )}
+    </>
   );
 };

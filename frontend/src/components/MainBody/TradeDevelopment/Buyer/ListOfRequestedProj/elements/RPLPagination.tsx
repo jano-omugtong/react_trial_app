@@ -1,22 +1,51 @@
 import React from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link, useNavigate } from "react-router-dom";
 
-export const RPLPagination: React.FC = () => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import store from "../../../../../../services/store";
+
+interface RPLPaginationProps {
+  totalPages: number;
+  currentPage: number;
+}
+
+export const RPLPagination: React.FC<RPLPaginationProps> = (props) => {
+  const total_pages: number = props.totalPages;
+  const current_page: number = props.currentPage;
+  const navigate = useNavigate();
+
+  const navigateToChosenPage = (gotoPage: number): void => {
+    store.requested_proj_list_current_page = gotoPage;
+    navigate("/trade_development/buyer/requested_project_list");
+  };
+
   return (
     <nav
       className="pagination is-small"
       role="navigation"
       aria-label="pagination"
     >
-      <button className="button pagination-previous mx-0">
+      <button
+        className="button pagination-previous mx-0"
+        disabled={current_page === 1}
+        onClick={() => {
+          navigateToChosenPage(current_page - 1);
+        }}
+      >
         <FontAwesomeIcon
           icon={["fas", "arrow-left"]}
           className="icon is-size-7 has-text-info mr-2"
         />
         前へ
       </button>
-      <button className="button pagination-next mx-0">
+      <button
+        className="button pagination-next mx-0"
+        disabled={total_pages === current_page}
+        onClick={() => {
+          navigateToChosenPage(current_page + 1);
+        }}
+      >
         次へ
         <FontAwesomeIcon
           icon={["fas", "arrow-right"]}
@@ -24,41 +53,85 @@ export const RPLPagination: React.FC = () => {
         />
       </button>
       <ul className="pagination-list">
-        <li>
-          <a className="pagination-link" aria-label="Goto page 1">
-            1
-          </a>
-        </li>
-        <li>
-          <span className="pagination-ellipsis">&hellip;</span>
-        </li>
-        <li>
-          <a className="pagination-link" aria-label="Goto page 45">
-            45
-          </a>
-        </li>
-        <li>
-          <a
-            className="pagination-link is-current"
-            aria-label="Page 46"
-            aria-current="page"
-          >
-            46
-          </a>
-        </li>
-        <li>
-          <a className="pagination-link" aria-label="Goto page 47">
-            47
-          </a>
-        </li>
-        <li>
-          <span className="pagination-ellipsis">&hellip;</span>
-        </li>
-        <li>
-          <a className="pagination-link" aria-label="Goto page 86">
-            86
-          </a>
-        </li>
+        {total_pages > 1 && current_page > 2 ? (
+          <li>
+            <Link
+              to=""
+              className="pagination-link"
+              aria-label="Goto page 1"
+              onClick={() => {
+                navigateToChosenPage(1);
+              }}
+            >
+              1
+            </Link>
+          </li>
+        ) : null}
+        {total_pages > 5 && current_page > 3 ? (
+          <li>
+            <span className="pagination-ellipsis">&hellip;</span>
+          </li>
+        ) : null}
+        {total_pages > 1 && current_page > 1 ? (
+          <li>
+            <Link
+              to=""
+              className="pagination-link"
+              aria-label={`Goto page ${current_page - 1}`}
+              onClick={() => {
+                navigateToChosenPage(current_page - 1);
+              }}
+            >
+              {current_page - 1}
+            </Link>
+          </li>
+        ) : null}
+        {total_pages && current_page ? (
+          <li>
+            <Link
+              to=""
+              className="pagination-link is-current"
+              aria-label={`Page ${current_page}`}
+              aria-current="page"
+            >
+              {current_page}
+            </Link>
+          </li>
+        ) : null}
+        {total_pages > current_page ? (
+          <li>
+            <Link
+              to=""
+              className="pagination-link"
+              aria-label={`Goto page ${current_page + 1}`}
+              onClick={() => {
+                navigateToChosenPage(current_page + 1);
+              }}
+            >
+              {current_page + 1}
+            </Link>
+          </li>
+        ) : null}
+
+        {total_pages > current_page + 2 ? (
+          <li>
+            <span className="pagination-ellipsis">&hellip;</span>
+          </li>
+        ) : null}
+        {total_pages > current_page + 1 ? (
+          <li>
+            <Link
+              to=""
+              className="pagination-link"
+              aria-label={`Goto page ${total_pages}`}
+              onClick={() => {
+                navigateToChosenPage(total_pages);
+              }}
+            >
+              {total_pages}
+            </Link>
+          </li>
+        ) : null}
       </ul>
     </nav>
   );

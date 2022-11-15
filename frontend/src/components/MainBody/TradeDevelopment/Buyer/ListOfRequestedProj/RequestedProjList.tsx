@@ -136,6 +136,7 @@ export const RequestedProjList: React.FC = () => {
           return (
             <RPLProject
               key={currentValue.projId}
+              forExpandedSingleProject={false}
               projId={currentValue.projId}
               projTags={currentValue.projTags}
               certifiedClient={currentValue.certifiedClient}

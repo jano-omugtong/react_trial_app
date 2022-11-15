@@ -47,6 +47,7 @@ export const LandingPage: React.FC = () => {
           }
           style={{
             height: "100%",
+            width: "100%",
           }}
         >
           {location.pathname.includes(landing_page) ? (

@@ -15,7 +15,13 @@ export interface ISingleReviewProps {
 export const SingleReview: React.FC<ISingleReviewProps> = (props) => {
   return (
     <div className="columns">
-      <div className="column is-1">
+      <div
+        className="column is-1"
+        style={{
+          minWidth: "80px",
+          minHeight: "60px",
+        }}
+      >
         <img
           style={{
             width: "3.5rem",
@@ -23,6 +29,7 @@ export const SingleReview: React.FC<ISingleReviewProps> = (props) => {
             marginLeft: "18px",
             borderRadius: "50%",
             objectFit: "cover",
+            position: "absolute",
           }}
           src={process.env.PUBLIC_URL + `/images/${props.reviewerProfilePic}`}
           alt="Profile Pic"

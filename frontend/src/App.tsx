@@ -14,6 +14,8 @@ import { TDSellerMain } from "./components/MainBody/TradeDevelopment/TDSellerMai
 import { SubSelection } from "./components/MainBody/Selection/SubSelection";
 import { PageNotFound } from "./components/Navigation/PageNotFound";
 import { RequestedProjList } from "./components/MainBody/TradeDevelopment/Buyer/ListOfRequestedProj/RequestedProjList";
+import { ExpandedSingleProject } from "./components/MainBody/TradeDevelopment/Buyer/ListOfRequestedProj/SubComponents/ExpandedSingleProject";
+import { RequestedProjectOffer } from "./components/MainBody/TradeDevelopment/Buyer/ListOfRequestedProj/SubComponents/RequestedProjectOffer";
 
 function App() {
   ReactSession.setStoreType("localStorage");
@@ -35,6 +37,14 @@ function App() {
             <Route
               path="/trade_development/buyer/requested_project_list"
               element={<RequestedProjList />}
+            />
+            <Route
+              path="/trade_development/buyer/expanded_requested_project/:projectId"
+              element={<ExpandedSingleProject />}
+            />
+            <Route
+              path="/trade_development/buyer/requested_project_offer"
+              element={<RequestedProjectOffer />}
             />
           </Route>
           <Route path="/trade_development/seller" element={<TDSellerMain />} />

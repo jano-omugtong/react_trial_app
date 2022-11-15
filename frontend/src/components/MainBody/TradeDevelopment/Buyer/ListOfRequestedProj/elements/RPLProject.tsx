@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -23,7 +24,13 @@ export interface IRPLProjectProps {
   bookmarked: boolean;
 }
 
-export const RPLProject: React.FC<IRPLProjectProps> = (props) => {
+interface IProps extends IRPLProjectProps {
+  forExpandedSingleProject: boolean;
+}
+
+export const RPLProject: React.FC<IProps> = (props) => {
+  const navigate = useNavigate();
+
   const [showDetails, setShowDetails] = useState(
     store.requested_proj_list_vd_isChecked
   );
@@ -69,7 +76,11 @@ export const RPLProject: React.FC<IRPLProjectProps> = (props) => {
           }}
         ></div>
         <div className="columns">
-          <div className={`column ${showDetails ? "is-7" : "is-4"}`}>
+          <div
+            className={`column ${
+              showDetails || props.forExpandedSingleProject ? "is-7" : "is-4"
+            }`}
+          >
             <p className="title is-4 has-text-info">{props.projName}</p>
             <p
               className="subtitle is-5"
@@ -86,18 +97,13 @@ export const RPLProject: React.FC<IRPLProjectProps> = (props) => {
               {props.fieldName + " " + props.fieldRate}
             </p>
 
-            {showDetails ? (
+            {showDetails || props.forExpandedSingleProject ? (
               <p
-                style={{
-                  minWidth: "40rem",
-                  whiteSpace: "pre-line",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  display: "-webkit-box",
-                  WebkitLineClamp: "3",
-                  lineClamp: "3",
-                  WebkitBoxOrient: "vertical",
-                }}
+                className={`description-with-break ${
+                  props.forExpandedSingleProject
+                    ? ""
+                    : "description-with-ellipsis"
+                }`}
               >
                 {props.projDetails}
               </p>
@@ -122,9 +128,13 @@ export const RPLProject: React.FC<IRPLProjectProps> = (props) => {
                 : null}
             </p>
           </div>
-          <div className={`column ${showDetails ? "is-5" : "is-8"}`}>
+          <div
+            className={`column ${
+              showDetails || props.forExpandedSingleProject ? "is-5" : "is-8"
+            }`}
+          >
             <div
-              className="columns"
+              className="columns has-background-white"
               style={{
                 height: "90%",
               }}
@@ -214,9 +224,29 @@ export const RPLProject: React.FC<IRPLProjectProps> = (props) => {
                 気になる
               </button>
             )}
-            <button className="button is-info ml-2">
-              この仕事に似た仕事を依頼する
-            </button>
+            {props.forExpandedSingleProject ? (
+              <button
+                className="button sitewide-bg ml-2 has-text-white"
+                onClick={() => {
+                  navigate("/trade_development/buyer/requested_project_offer", {
+                    state: { projectId: props.projId },
+                  });
+                }}
+              >
+                エントリーをオファーする。
+              </button>
+            ) : (
+              <button
+                className="button is-info ml-2"
+                onClick={() => {
+                  navigate(
+                    `/trade_development/buyer/expanded_requested_project/${props.projId}`
+                  );
+                }}
+              >
+                この仕事に似た仕事を依頼する
+              </button>
+            )}
           </div>
         </div>
       </div>

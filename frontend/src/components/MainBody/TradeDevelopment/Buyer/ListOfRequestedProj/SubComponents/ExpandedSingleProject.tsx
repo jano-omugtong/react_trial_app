@@ -76,7 +76,7 @@ export const ExpandedSingleProject: React.FC = () => {
   return (
     <>
       {project ? (
-        <div className="m-5">
+        <div className="m-5 box">
           <RPLProject
             forExpandedSingleProject
             projTags={project.projTags}

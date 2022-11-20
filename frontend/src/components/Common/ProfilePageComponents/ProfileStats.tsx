@@ -64,7 +64,7 @@ export const ProfileStats: React.FC<IProfileStatsProps> = (props) => {
             >
               <FontAwesomeIcon
                 icon={["fas", "circle"]}
-                className="icon smirk-smiley-color"
+                className="icon sitewide-orange-color"
               />
               <FontAwesomeIcon
                 inverse

@@ -51,7 +51,7 @@ export const SingleReview: React.FC<ISingleReviewProps> = (props) => {
           >
             <FontAwesomeIcon
               icon={["fas", "circle"]}
-              className="icon is-small smirk-smiley-color"
+              className="icon is-small sitewide-orange-color"
             />
             <FontAwesomeIcon
               inverse
@@ -59,7 +59,8 @@ export const SingleReview: React.FC<ISingleReviewProps> = (props) => {
               className="icon is-small has-text-white"
             />
           </span>
-          <span className="smirk-smiley-color">満足</span> | {"パッケージ "} |{" "}
+          <span className="sitewide-orange-color">満足</span> | {"パッケージ "}{" "}
+          |{" "}
           {`獲得報酬: ${Intl.NumberFormat("en-US").format(
             props.acquisitionRewardStart
           )}円~${Intl.NumberFormat("en-US").format(

@@ -30,7 +30,7 @@ export const RequestedProjList: React.FC = () => {
     store.requested_proj_list_current_page = 1;
   });
 
-  // fetch from db all initially
+  // fetch from db all initially (this will be a fetch from the db thus this should be inside use effect)
   const allProjArray: IRPLProjectProps[] = [
     {
       projId: 1,

@@ -77,7 +77,9 @@ export const RequestedProjectOffer: React.FC = () => {
           style={{ marginTop: "6rem" }}
         >
           <div className="control">
-            <button className="button sitewide-bg">エントリーする</button>
+            <button className="button sitewide-orange-bg has-text-white">
+              エントリーする
+            </button>
           </div>
         </div>
       </form>

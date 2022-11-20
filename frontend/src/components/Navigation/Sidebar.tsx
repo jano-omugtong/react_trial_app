@@ -10,9 +10,9 @@ export const Sidebar: React.FC = () => {
   const landing_page = "/landing";
   const td_buyer_page = "/trade_development/buyer";
   const td_seller_page = "/trade_development/seller";
-  const td_b_RequestedProjList_page =
-    "/trade_development/buyer/requested_project_list";
-
+  const td_b_RequestedProj_pages = "requested_project";
+  const td_b_PendingEntryList_page =
+    "/trade_development/buyer/pending_entry_list";
   return (
     <aside className="menu">
       <p className="menu-label">
@@ -38,7 +38,7 @@ export const Sidebar: React.FC = () => {
       <ul className="menu-list">
         <li
           className={
-            location.pathname.includes(landing_page) ? "sitewide-bg" : ""
+            location.pathname.includes(landing_page) ? "sitewide-orange-bg" : ""
           }
         >
           <Link to="/landing">
@@ -86,14 +86,23 @@ export const Sidebar: React.FC = () => {
           </span>
           <ul className="menu-list menu-list-sub">
             <li>
-              <a href="/">エントリー中の依頼一覧</a>
+              <Link
+                to="/trade_development/buyer/pending_entry_list"
+                className={
+                  location.pathname.includes(td_b_PendingEntryList_page)
+                    ? "sitewide-orange-color"
+                    : ""
+                }
+              >
+                エントリー中の依頼一覧
+              </Link>
             </li>
             <li>
               <Link
                 to="/trade_development/buyer/requested_project_list"
                 className={
-                  location.pathname.includes(td_b_RequestedProjList_page)
-                    ? "active-link"
+                  location.pathname.includes(td_b_RequestedProj_pages)
+                    ? "sitewide-orange-color"
                     : ""
                 }
               >

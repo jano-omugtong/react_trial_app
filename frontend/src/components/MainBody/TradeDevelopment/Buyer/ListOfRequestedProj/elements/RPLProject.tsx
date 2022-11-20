@@ -141,14 +141,16 @@ export const RPLProject: React.FC<IProps> = (props) => {
             >
               <div className="column is-4 has-text-centered proj-details">
                 <p>
-                  <span className="tag is-success">時間単価制</span>
+                  <span className="tag is-success tag-adjust-text">
+                    時間単価制
+                  </span>
                 </p>
                 <p className="has-text-danger">
-                  <span className="is-size-3">
+                  <span className="adjust-text">
                     {Intl.NumberFormat("en-US").format(props.hourlyRate[0])}
                   </span>
                   円~{" "}
-                  <span className="is-size-3">
+                  <span className="adjust-text">
                     {Intl.NumberFormat("en-US").format(props.hourlyRate[1])}
                   </span>
                   円
@@ -157,7 +159,7 @@ export const RPLProject: React.FC<IProps> = (props) => {
               <div className="column is-4 has-text-centered proj-details">
                 <p>
                   <span className="is-size-5">契約数</span>
-                  <span className="is-size-3">{` ${props.noOfContracts[0]} `}</span>
+                  <span className="adjust-text">{` ${props.noOfContracts[0]} `}</span>
                   人
                 </p>
                 <p>
@@ -169,7 +171,7 @@ export const RPLProject: React.FC<IProps> = (props) => {
               <div className="column is-4 has-text-centered proj-details">
                 <p>
                   <span className="is-size-5">あと</span>
-                  <span className="is-size-3">{` ${monthDiff(
+                  <span className="adjust-text">{` ${monthDiff(
                     new Date(props.dueDate)
                   )} `}</span>
                   日
@@ -203,7 +205,7 @@ export const RPLProject: React.FC<IProps> = (props) => {
               <span className="mx-2">{props.companyName}</span>
             </p>
           </div>
-          <div className="column is-7 is-flex is-justify-content-end">
+          <div className="column is-7 is-flex-desktop is-justify-content-end">
             <p className="has-text-grey is-align-self-center text-dont-break mx-2">{`掲載日：${new Date().getFullYear()}年${
               new Date().getMonth() + 1
             }月${new Date().getDate()}日`}</p>
@@ -226,7 +228,7 @@ export const RPLProject: React.FC<IProps> = (props) => {
             )}
             {props.forExpandedSingleProject ? (
               <button
-                className="button sitewide-bg ml-2 has-text-white"
+                className="button sitewide-orange-bg ml-2 has-text-white"
                 onClick={() => {
                   navigate("/trade_development/buyer/requested_project_offer", {
                     state: { projectId: props.projId },

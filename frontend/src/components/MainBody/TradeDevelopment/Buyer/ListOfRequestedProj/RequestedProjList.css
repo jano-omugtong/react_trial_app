@@ -11,6 +11,26 @@
   }
 }
 
+@media screen and (min-width: 800px) and (max-width: 960px) {
+  .adjust-text {
+    font-size: 1.5rem !important;
+  }
+
+  .tag-adjust-text {
+    font-size: 0.6rem !important;
+  }
+}
+
+.adjust-text {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 1560px) {
+  .description-with-break {
+    min-width: 0rem !important;
+  }
+}
+
 .certified-client {
   border-top-left-radius: 0px !important;
   border-top: 5px solid #3e8ed0;
